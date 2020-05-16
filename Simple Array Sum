@@ -1,0 +1,24 @@
+package com.company;
+import java.util.*;
+public class Main {
+    //We have defined here the scanner in private class as it will be avaialble t
+    // to every public class
+    private static final Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+       //Scanner for input
+        int input = scanner.nextInt();
+        //describe an array:
+        int[] array = new int[input];
+        for (int i =0;i<input;i++){
+            array[i]=scanner.nextInt();
+        }
+        System.out.println(arraySum(array,input));
+    }
+    public static int arraySum(int[] array,int n){
+        int sum =0;
+        for (int i =0;i<n;i++){
+            sum = sum +array[i];
+        }
+        return sum;
+    }
+}
