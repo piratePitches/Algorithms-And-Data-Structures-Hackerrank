@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class Solution{
+    private static Scanner scanner= new Scanner(System.in);
+    public static void main(String[] args) {
+        long[] array=new long[5];
+       for (int i=0;i<5;i++){
+           array[i] = scanner.nextLong();
+       }
+       long[] arrayn=sortedArray(array);
+       long sum=0;
+       long sum1=0;
+       for (int i=0;i<=3;i++){
+           sum=sum+arrayn[i];
+       }
+       for (int i =1;i<=4;i++){
+           sum1=sum1+arrayn[i];
+       }
+        System.out.print(sum+" "+sum1);
+    }
+    public static long[] sortedArray(long[] array) {
+        long[] sortedarray = new long[array.length];
+        for (int i = 0; i < array.length; i++) {
+            sortedarray[i] = array[i];
+        }
+        long temp;
+        boolean flag = true;
+        while (flag) {
+            flag = false;
+            for (int i = 0; i < sortedarray.length - 1; i++) {
+                if (sortedarray[i] > sortedarray[i + 1]) {
+                    temp = sortedarray[i];
+                    sortedarray[i] = sortedarray[i + 1];
+                    sortedarray[i + 1] = temp;
+                    flag = true;
+                }
+            }
+        }
+        return sortedarray;
+    }
+}
+//have to sort the array and then put it in the panel to check for the second test case result
