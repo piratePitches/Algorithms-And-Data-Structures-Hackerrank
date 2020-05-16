@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class Solution {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        int[][] array = getIntegers(n);
+        int sum1=sumDiagonal(array);
+        int sum2=sumDiagonal2(array);
+        int result=sum1-sum2;
+        System.out.println(Math.abs(result));
+    }
+
+    public static int[][] getIntegers(int numbers) {
+        int[][] values = new int[numbers][numbers];
+        for (int i = 0; i < numbers; i++) {
+            for (int j = 0; j < numbers; j++) {
+                values[i][j] = scanner.nextInt();
+            }
+        }
+        return values;
+    }
+
+    public static int sumDiagonal(int[][] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i == j) {
+                    sum = sum + array[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static int sumDiagonal2(int[][] array) {
+        int sum2 = 0;
+        for (int i =0; i <=array.length; i++) {
+            for (int j =0; j <=array.length; j++) {
+                if (i+j==array.length-1) {
+                    sum2 = sum2 + array[i][j];
+                }
+            }
+        }
+        return sum2;
+    }
+}
