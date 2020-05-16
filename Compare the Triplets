@@ -1,0 +1,33 @@
+package com.company;
+import java.util.*;
+public class Main {
+    //We have defined here the scanner in private class as it will be avaialble t
+    // to every public class
+    private static final Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+      int n = 3;
+      int[] a1= new int[n];
+      for(int i=0;i<n;i++){
+          a1[i]=scanner.nextInt();
+      }
+      int[] a2= new int[n];
+      for (int i =0;i<n;i++){
+          a2[i]=scanner.nextInt();
+      }
+      compareTriplets(a1,a2,n);
+    }
+    public static void compareTriplets(int[] a1,int[] a2,int n){
+        int triplet1=0;
+        int triplet2=0;
+        for (int i =0;i<n;i++){
+            if (a1[i]>a2[i]){
+                triplet1++;
+            }
+            if (a1[i]<a2[i]) {
+                triplet2++;
+            }
+        }
+        System.out.print(triplet1+" ");
+        System.out.print(triplet2);
+    }
+}
