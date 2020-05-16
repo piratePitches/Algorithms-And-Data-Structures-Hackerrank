@@ -1,0 +1,18 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        String time = in.nextLine();
+        int length = time.length();
+        int hrs = Integer.parseInt( time.substring(0, 2) );
+        if( time.substring( length-2 ).equals("PM") && hrs != 12 ) 
+            time = time.replace( time.substring(0, 2), Integer.toString(hrs + 12) );
+        else if( time.substring( length-2 ).equals("AM") && hrs == 12 )
+            time = time.replace( time.substring(0, 2), "00" );    
+        System.out.println(time.substring(0, length-2));
+    }
+}
