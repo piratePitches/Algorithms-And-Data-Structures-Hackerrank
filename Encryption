@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Solution{
+    private static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args){
+        String str= scanner.nextLine();
+
+        Encrypt(str);
+    }
+    public static void Encrypt(String string){
+        string=string.replaceAll(" ","");
+        int n = string.length();
+        int height = (int) Math.floor(Math.sqrt(n));
+        int width = (int) Math.ceil(Math.sqrt(n));
+
+        if(height*width<n){
+            height++;
+        }
+        int x=0;
+        char[][] array = new char[height][width];
+        for(int i =0;i<height;i++){
+            for(int j =0;j<width;j++){
+                array[i][j]=string.charAt(x);
+                x++;
+                if(x>n-1){
+                    break;
+                }
+            }
+        }
+
+        for(int i=0;i<width;i++){
+            for(int j =0;j<height;j++){
+                if(array[j][i]=='\0'){
+                    continue;
+                }
+                System.out.print(array[j][i]);
+            }
+            System.out.print(" ");
+        }
+    }
+}
