@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Solution{
+    private static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args){
+        int n = scanner.nextInt();
+        int[] a= new int[n];
+        for (int i=0;i<n;i++){
+            a[i]=scanner.nextInt();
+        }
+        for (int i=0;i<a.length;i++) {
+        int number= a[i]/5;
+        int nextm= (number+1)*5;
+        if (nextm-a[i]>=3||a[i]<38){
+            System.out.println(a[i]);
+        }
+        else if (nextm-a[i]<3){
+            System.out.println(nextm);
+        }
+        }
+    }
+}
