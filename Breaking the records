@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Solution{
+    private static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args){
+        int n = scanner.nextInt();
+        int[] score= new int[n];
+        for (int i=0;i<n;i++){
+            score[i]=scanner.nextInt();
+        }
+        int countMax=0;
+        int maxElement=score[0];
+        for (int i=0;i<score.length;i++){
+            if (score[i]>maxElement){
+                maxElement=score[i];
+                countMax++;
+            }
+        }
+        int countMin=0;
+        int minElement=score[0];
+        for (int i =0;i<score.length;i++){
+            if (score[i]<minElement){
+                minElement=score[i];
+                countMin++;
+            }
+        }
+        System.out.print(countMax+" "+countMin);
+    }
+}
