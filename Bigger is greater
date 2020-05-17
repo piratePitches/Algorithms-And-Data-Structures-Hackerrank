@@ -1,0 +1,35 @@
+import java.util.*;
+public class Main{
+    private static final Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        int t = scanner.nextInt();
+        for (int test =1;test<=t;test++) {
+            String str = scanner.next(), a = "";
+            int numberCharsTaken = 0;
+            int flag = 0;
+            int x = 0;
+            for (numberCharsTaken = 1; numberCharsTaken <= str.length(); numberCharsTaken++) {
+                a = str.substring(str.length() - numberCharsTaken);
+                for (x = a.length() - 1; x > 0; x--) {
+                    if (a.charAt(0) < a.charAt(x)) {
+                        flag = 1;
+                        break;
+                    }
+                }
+                if (flag == 1)
+                    break;
+            }
+            if (flag == 1) {
+                String temp = a.substring(0, x) + a.substring(x + 1);
+                char[]c = temp.toCharArray();
+                Arrays.sort(c);
+                temp= a.charAt(x)+new String(c);
+                String ans = str.substring(0, str.length()-numberCharsTaken)+temp;
+                System.out.println(ans);
+            }
+            else{
+                System.out.println("no answer");
+            }
+        }
+    }
+}
