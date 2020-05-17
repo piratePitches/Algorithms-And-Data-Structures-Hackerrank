@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Solution{
+    private static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args){
+        int s = scanner.nextInt();
+        int t = scanner.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int m = scanner.nextInt();
+        int n = scanner.nextInt();
+        int[] apples= new int[m];
+        for (int i=0;i<m;i++){
+            apples[i]=scanner.nextInt();
+        }
+        int[] oranges= new int[n];
+        for (int i =0;i<n;i++){
+            oranges[i]=scanner.nextInt();
+        }
+        int count1=0;
+        for (int i=0;i< apples.length;i++){
+            if (apples[i]+a>=s&&apples[i]+a<=t){
+                count1++;
+            }
+        }
+        int count2=0;
+        for (int i=0;i< oranges.length;i++){
+            if (oranges[i]+b>=s&&oranges[i]+b<=t){
+                count2++;
+            }
+        }
+        System.out.println(count1);
+        System.out.println(count2);
+    }
+}
