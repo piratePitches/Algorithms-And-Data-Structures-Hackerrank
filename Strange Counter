@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main{
+    private static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args){
+        long t = scanner.nextLong();
+        System.out.println(getValue(t));
+    }
+    public static long getValue(long t){
+        long rem =3;
+        while(t>rem){
+            t=t-rem;
+            rem = rem*2;
+        }
+        return (rem-t+1);
+    }
+}
