@@ -1,0 +1,70 @@
+import java.util.*;
+public class Main{
+    private static final Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args){
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[] a = new int[n];
+        for (int i =0;i<n;i++){
+            a[i]=scanner.nextInt();
+        }
+        int[] b = new int[m];
+        for (int i =0;i<m;i++){
+            b[i]=scanner.nextInt();
+        }
+        System.out.println(count(a,b,n,m));
+    }
+    public static int LCM(int[] a, int n){
+       int lcm = 1;
+       int divisor =2;
+       while(true){
+           int counter =0;
+           boolean divisible =false;
+           for (int i =0;i<n;i++){
+               if (a[i]==0)
+                   return 0;
+               else if (a[i]<0)
+                   a[i]=a[i]*-1;
+               if (a[i]==1)
+                   counter++;
+
+               if (a[i]%divisor==0){
+                   divisible=true;
+                   a[i]=a[i]/divisor;
+               }
+           }
+           if (divisible)
+               lcm=lcm*divisor;
+           else
+               divisor++;
+
+           if (counter==n)
+               return lcm;
+       }
+    }
+    public static int GCD(int a,int b){
+        if (a==0)
+            return b;
+        return GCD(b%a,a);
+    }
+    public static int findGCD(int[] b,int m){
+        int result = b[0];
+        for (int i =1;i<m;i++){
+            result = GCD(b[i],result);
+
+            if (result==1)
+                return 1;
+        }
+        return result;
+    }
+    public static int count(int[]a,int[]b,int n ,int m){
+        int GCD = findGCD(b,m);
+        int LCM = LCM(a,n);
+        int count=0;
+        for (int i=1;i<=GCD/LCM;i++){
+            if (GCD%(LCM*i)==0)
+                count++;
+        }
+        return count;
+    }
+}
